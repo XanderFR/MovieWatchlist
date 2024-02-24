@@ -26,7 +26,7 @@ def login_required(route):
 def index():
     userData = current_app.db.users.find_one({"email": session["email"]})
     user = User(**userData)
-    movieData = current_app.db.movie.find({"_id": {"$in": user.movies}})  # Get all movie data from database for a user
+    movieData = current_app.db.movies.find({"_id": {"$in": user.movies}})  # Get all movie data from database for a user
     movies = [Movie(**movie) for movie in movieData]  # List of Movie objects for each movie in movieData
     return render_template(
         "index.html",

@@ -7,7 +7,7 @@ from routes import pages
 
 app = Flask(__name__)
 app.register_blueprint(pages)
-client = MongoClient("mongodb://localhost:#####")
+client = MongoClient("mongodb://localhost:27017")
 app.db = client.moviewatchlist
 
 app.config["SECRET_KEY"] = os.environ.get(

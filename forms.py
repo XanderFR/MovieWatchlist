@@ -20,7 +20,7 @@ class StringListField(TextAreaField):
         else:
             return ""
 
-    def processFormdata(self, valuelist):
+    def process_formdata(self, valuelist):
         # Checks valuelist contains at least 1 element, and the first element isn't falsy (i.e. empty string)
         if valuelist and valuelist[0]:
             self.data = [line.strip() for line in valuelist[0].split("\n")]  # Takes text in textarea, splits it into lines, strips lines of whitespace and puts into list that gets assigned to self.data
